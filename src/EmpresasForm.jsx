@@ -20,10 +20,10 @@ function EmpresasForm(props) {
                         render={({ handleSubmit, form, submitting, pristine, values }) => (
                             <form onSubmit={handleSubmit}>
                                 <div className="p-grid">
-                                    <div className="p-col-11">
+                                    <div className="p-col-12">
                                         <Input name="descricao" label="Nome da empresa" />
                                     </div>
-                                    <div className="p-col-1">
+                                    <div className="p-col-12">
                                         <Button label="Enviar" icon="pi pi-send" />
                                     </div>
                                 </div>
