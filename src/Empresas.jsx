@@ -1,13 +1,16 @@
 import './App.css';
 import Navigator from './template/Navigator';
 import { Card } from 'primereact/card';
-import React, {Fragment} from 'react';
+import React, {useState} from 'react';
 import {DataTable} from 'primereact/datatable';
 import {Column} from 'primereact/column';
-import {GridToolbar} from './template/GridToolbar';
+import EmpresasForm from './EmpresasForm';
 import {Button} from 'primereact/button';
-function Empresas() {
+import { Dialog } from 'primereact/dialog';
 
+
+function Empresas() {
+    const [dialogDisplay, setdiaglogDisplay] = useState(false);
     const dados = [
         {
             codigo: 1,
@@ -27,10 +30,20 @@ function Empresas() {
                     <DataTable value={dados} className="p-datatable-responsive" paginator rows={50}>
                         <Column field="codigo" style={{width: '10%'}} header="Código"/>
                         <Column field="descricao" header="Descrição"/>
-                        <Column field="opcoes" style={{width: '5%'}} header={<Button className="p-button-rounded p-button-info" icon="pi pi-plus"/>}/>
+                        <Column field="opcoes" style={{width: '5%'}} 
+                        header={<Button className="p-button-rounded p-button-info" icon="pi pi-plus"
+                        onClick={() => {setdiaglogDisplay(true); console.log(`click`)} }/>}/>
                     </DataTable>
                 </Card>
             </div>
+
+
+        <Dialog header="Formulário de Empresas" style={{width: `80vw`}} visible={dialogDisplay} closable={true} maximizable={true}
+        onHide={() => setdiaglogDisplay(false)}
+        >
+            <EmpresasForm/>
+        </Dialog>
+
         </div>
 
     );
