@@ -1,12 +1,13 @@
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
-
+import {browserHistory } from 'react-router';
 
 export default function Navigator(){
     const itens = [
         {
             label : "Empresas",
-            icon : 'pi pi-fw pi-briefcase'            
+            icon : 'pi pi-fw pi-briefcase',
+            command :  () => browserHistory.push('/empresas')
         }, 
         {separator : true},
         {

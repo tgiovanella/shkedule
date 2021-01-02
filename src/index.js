@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Empresas from './Empresas';
+import Projetos from './Projetos';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -13,6 +14,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path='/' exact={true} component={Empresas} />
+      <Route path='/empresas' exact={true} component={Empresas} />
+      <Route path='/projetos' exact={true} component={Projetos} />
     </Switch>
   </BrowserRouter>, 
   document.getElementById('root')
