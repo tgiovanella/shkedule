@@ -1,30 +1,34 @@
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
-import {browserHistory } from 'react-router';
+import {history} from 'react-router-dom';
 
 export default function Navigator(){
     const itens = [
         {
             label : "Empresas",
             icon : 'pi pi-fw pi-briefcase',
-            command :  () => browserHistory.push('/empresas')
+            command :  () => window.location = "/empresas"
         }, 
         {separator : true},
         {
             label : "Projetos",
-            icon : 'pi pi-fw pi-ticket'            
+            icon : 'pi pi-fw pi-ticket',
+            command :  () => window.location = "/projetos"            
         },
         {
             label : "Atividades",
-            icon : 'pi pi-fw pi-list'            
+            icon : 'pi pi-fw pi-list',
+            command :  () => window.location = "/atividades"            
         },
         {
             label : "Usuarios",
-            icon : 'pi pi-fw pi-user'            
+            icon : 'pi pi-fw pi-user',
+            command :  () => window.location = "/usuários"            
         },
         {
             label : "Meu Perfil",
-            icon : 'pi pi-fw pi-id-card'            
+            icon : 'pi pi-fw pi-id-card',
+            command :  () => window.location = "/perfil"            
         }        
     ]
 
