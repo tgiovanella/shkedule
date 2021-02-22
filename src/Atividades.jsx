@@ -1,39 +1,42 @@
 import "./App.css";
 import Navigator from "./Template/Navigator";
 import { Card } from "primereact/card";
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import EmpresasForm from "./EmpresasForm";
+import AtividadesForm from "./AtividadesForm";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
-import {getEmpresas} from './Controllers/empresasController';
 
-function Empresas() {
-  
+function Atividades() {
   const [dialogDisplay, setdiaglogDisplay] = useState(false);
-  const [empresas, setEmpresas] = useState(getEmpresas());
+  const dados = [
+    {
+      codigo: 1,
+      descricao: "Thiago Giovanella",
+      empresa: "Thiago Giovanella",
+    },
+    {
+      codigo: 2,
+      descricao: "SHKedule",
+      empresa: "Thiago Giovanella",
+    },
+  ];
 
-  useEffect(() => {
-    getEmpresas().then(resp => {
-      setEmpresas(resp.data);
-    })
-    
-  },[dialogDisplay, setEmpresas]);
-  
   return (
     <div>
       <Navigator />
       <div className="container">
-        <Card title="Empresas" subTitle="Empresas que atendo">
+        <Card title="Atividades" subTitle="Atividades em projetos que estou participando">
           <DataTable
-            value={empresas}
+            value={dados}
             className="p-datatable-responsive"
             paginator
             rows={50}
           >
             <Column field="codigo" style={{ width: "10%" }} header="Código" />
             <Column field="descricao" header="Descrição" />
+            <Column field="projeto" header="Projeto" />
             <Column
               field="opcoes"
               style={{ width: "5%" }}
@@ -43,6 +46,7 @@ function Empresas() {
                   icon="pi pi-plus"
                   onClick={() => {
                     setdiaglogDisplay(true);
+                    console.log(`click`);
                   }}
                 />
               }
@@ -52,17 +56,17 @@ function Empresas() {
       </div>
 
       <Dialog
-        header="Formulário de Empresas"
+        header="Formulário de Atividades"
         style={{ width: `80vw` }}
         visible={dialogDisplay}
         closable={true}
         maximizable={true}
         onHide={() => setdiaglogDisplay(false)}
       >
-        <EmpresasForm />
+        <AtividadesForm />
       </Dialog>
     </div>
   );
 }
 
-export default Empresas;
+export default Atividades;

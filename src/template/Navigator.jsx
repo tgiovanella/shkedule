@@ -1,6 +1,5 @@
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
-import {history} from 'react-router-dom';
 
 export default function Navigator(){
     const itens = [
