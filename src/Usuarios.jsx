@@ -7,34 +7,35 @@ import { Column } from "primereact/column";
 import EmpresasForm from "./EmpresasForm";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
-import {getEmpresas} from './Controllers/empresasController';
 
-function Empresas() {
+import {getUsuarios} from './Controllers/usuariosController';
+
+function Usuarios() {
   
   const [dialogDisplay, setdiaglogDisplay] = useState(false);
-  const [empresas, setEmpresas] = useState(getEmpresas());
+  const [usuarios, setUsuarios] = useState(getUsuarios());
 
   useEffect(() => {
-    getEmpresas().then(resp => {
-      console.info(resp);
-      setEmpresas(resp.data);
+    getUsuarios().then(resp => {
+        setUsuarios(resp.data);
     })
     
-  },[dialogDisplay]);
+  },[dialogDisplay, setUsuarios]);
   
   return (
     <div>
       <Navigator />
       <div className="container">
-        <Card title="Empresas" subTitle="Empresas que atendo">
+        <Card title="Usuários" subTitle="Usuários do sistema">
           <DataTable
-            value={empresas}
+            value={usuarios}
             className="p-datatable-responsive"
             paginator
             rows={50}
           >
             <Column field="codigo" style={{ width: "10%" }} header="Código" />
-            <Column field="descricao" header="Descrição" />
+            <Column field="nome" header="Nome" />
+            <Column field="email" header="E-mail" />
             <Column
               field="opcoes"
               style={{ width: "5%" }}
@@ -66,4 +67,4 @@ function Empresas() {
   );
 }
 
-export default Empresas;
+export default Usuarios;

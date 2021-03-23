@@ -22,7 +22,7 @@ export default function Navigator(){
         {
             label : "Usuarios",
             icon : 'pi pi-fw pi-user',
-            command :  () => window.location = "/usuários"            
+            command :  () => window.location = "/usuarios"            
         },
         {
             label : "Meu Perfil",

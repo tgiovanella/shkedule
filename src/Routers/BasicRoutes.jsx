@@ -10,6 +10,7 @@ import { UserProvider, userContext } from "../Contexts/User";
 import Empresas from "../Empresas";
 import Projetos from "../Projetos";
 import Atividades from "../Atividades";
+import Usuarios from "../Usuarios";
 import Login from "../Login";
 
 export default function BasicRoutes() {
@@ -32,6 +33,9 @@ export default function BasicRoutes() {
           </Route>
           <Route path="/atividades" exact={true}>
             <Atividades />
+          </Route>
+          <Route path="/usuarios" exact={true}>
+            <Usuarios />
           </Route>
         </Switch>
       ) : (
